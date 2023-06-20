@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "432613890645",
+    "project_id": "sekutor-login",
+    "storage_bucket": "sekutor-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432613890645:android:58331b52d78eb5b06392dc",
+        "android_client_info": {
+          "package_name": "com.example.sekutorakademijainfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432613890645-hm0anbnna4l235j1r7rmic4chjc0ne8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTbrQET3bM2-ckm_ZzPaNruc52eQs6ij0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432613890645-hm0anbnna4l235j1r7rmic4chjc0ne8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
