@@ -20,7 +20,6 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
         user = auth.getCurrentUser();
 
         if (user == null){
@@ -29,14 +28,14 @@ public class Home extends AppCompatActivity {
             finish();
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-             FirebaseAuth.getInstance().signOut();
-             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-             startActivity(intent);
-             finish();
-            }
-        });
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//             FirebaseAuth.getInstance().signOut();
+//             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//             startActivity(intent);
+//             finish();
+//            }
+//        });
     }
 }
