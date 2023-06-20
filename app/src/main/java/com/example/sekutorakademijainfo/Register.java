@@ -20,9 +20,20 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
 
-    EditText editTextEmail, editTextName, editTextPassword;
+    EditText editTextEmail, editTextPassword;
     Button buttonReg;
     FirebaseAuth mAuth;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+            finish();
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +45,13 @@ public class Register extends AppCompatActivity {
         buttonReg.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email, name, password;
+                String email, password;
                 email = String.valueOf(editTextEmail.getText());
-                name = String.valueOf(editTextName.getText());
                 password  = String.valueOf(editTextPassword.getText());
                 mAuth = FirebaseAuth.getInstance();
 
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT);
-                    return;
-                }
-                if (TextUtils.isEmpty(name)){
-                    Toast.makeText(Register.this, "Enter name", Toast.LENGTH_SHORT);
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
