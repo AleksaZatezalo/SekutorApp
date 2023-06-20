@@ -25,17 +25,10 @@ public class Register extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), Home.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         editTextEmail = findViewById(R.id.editTextTextEmailAddress);
@@ -68,7 +61,7 @@ public class Register extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(Register.this, "Authentication failed.",
+                                    Toast.makeText(Register.this, "Registration Failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

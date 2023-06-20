@@ -24,16 +24,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), Home.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
@@ -41,12 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        setContentView(R.layout.activity_register);
         editTextEmail = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonReg = findViewById(R.id.Register);
         buttonLogin = findViewById(R.id.Login);
+
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
                 mAuth = FirebaseAuth.getInstance();
 
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(MainActivity.this, "Enter email", Toast.LENGTH_SHORT);
+                    Toast.makeText(MainActivity.this, "Enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    Toast.makeText(MainActivity.this, "Enter password", Toast.LENGTH_SHORT);
+                    Toast.makeText(MainActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
