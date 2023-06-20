@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
     Button buttonLogin, buttonReg;
     FirebaseAuth mAuth;
+    ProgressBar progressBar;
+    TextView resetPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,17 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonReg = findViewById(R.id.Register);
         buttonLogin = findViewById(R.id.Login);
+        progressBar = findViewById(R.id.progressBar);
+        resetPass = findViewById(R.id.ForgotPassword);
 
-
+        resetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 String email, password;
                 email = String.valueOf(editTextEmail.getText());
                 password  = String.valueOf(editTextPassword.getText());
@@ -69,9 +83,10 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (!task.isSuccessful()) {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.makeText(MainActivity.this, "Authentication failed",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
+                                    progressBar.setVisibility(View.GONE);
                                     Intent intent = new Intent(getApplicationContext(), Home.class);
                                     startActivity(intent);
                                     finish();

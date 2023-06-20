@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,7 @@ public class Register extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
     Button buttonReg;
     FirebaseAuth mAuth;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,12 @@ public class Register extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonReg = findViewById(R.id.Register);
+        progressBar = findViewById(R.id.progressBar);
 
         buttonReg.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 String email, password;
                 email = String.valueOf(editTextEmail.getText());
                 password  = String.valueOf(editTextPassword.getText());
@@ -57,10 +61,11 @@ public class Register extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Register.this, "Account created.",
+                                    progressBar.setVisibility(View.GONE);
+                                    Toast.makeText(Register.this, "Account created",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                            Toast.makeText(Register.this, "Registration Failed.",
+                                            Toast.makeText(Register.this, "Registration failed",
                                             Toast.LENGTH_SHORT).show();
                                     // If sign in fails, display a message to the user.
                                 }
