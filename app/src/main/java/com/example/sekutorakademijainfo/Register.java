@@ -44,11 +44,11 @@ public class Register extends AppCompatActivity {
                 mAuth = FirebaseAuth.getInstance();
 
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT);
+                    Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT);
+                    Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -60,9 +60,9 @@ public class Register extends AppCompatActivity {
                                     Toast.makeText(Register.this, "Account created.",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(Register.this, "Registration Failed.",
+                                            Toast.makeText(Register.this, "Registration Failed.",
                                             Toast.LENGTH_SHORT).show();
+                                    // If sign in fails, display a message to the user.
                                 }
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
