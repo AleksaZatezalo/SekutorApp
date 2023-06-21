@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
                 startActivity(intent);
-                finish();
             }
         });
         buttonReg.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Register.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -69,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
                 mAuth = FirebaseAuth.getInstance();
 
                 if (TextUtils.isEmpty(email)){
-                    Toast.makeText(MainActivity.this, "Enter email", Toast.LENGTH_SHORT).show();
+                    editTextEmail.setError("Enter your email.");
                     return;
                 }
                 if (TextUtils.isEmpty(password)){
-                    Toast.makeText(MainActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
+                    editTextPassword.setError("Enter your password.");
                     return;
                 }
 
