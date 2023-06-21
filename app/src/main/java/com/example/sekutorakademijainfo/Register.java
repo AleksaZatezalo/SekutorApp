@@ -14,10 +14,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
 
@@ -37,7 +35,7 @@ public class Register extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonReg = findViewById(R.id.Register);
         progressBar = findViewById(R.id.progressBar);
-
+        progressBar.setVisibility(View.VISIBLE);
         buttonReg.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +59,11 @@ public class Register extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    try {
+                                        Thread.sleep(150);
+                                    } catch (InterruptedException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                     progressBar.setVisibility(View.GONE);
                                     Toast.makeText(Register.this, "Account created",
                                             Toast.LENGTH_SHORT).show();

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonReg = findViewById(R.id.Register);
         buttonLogin = findViewById(R.id.Login);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         resetPass = findViewById(R.id.ForgotPassword);
 
         resetPass.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 password  = String.valueOf(editTextPassword.getText());
                 mAuth = FirebaseAuth.getInstance();
 
+                if (TextUtils.isEmpty(email) & TextUtils.isEmpty(password)){
+                    editTextEmail.setError("Enter your email.");
+                    editTextPassword.setError("Enter your password.");
+                    return;
+                }
+
                 if (TextUtils.isEmpty(email)){
                     editTextEmail.setError("Enter your email.");
                     return;
@@ -84,6 +90,11 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "Authentication failed",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
+                                    try {
+                                        Thread.sleep(150);
+                                    } catch (InterruptedException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                     progressBar.setVisibility(View.GONE);
                                     Intent intent = new Intent(getApplicationContext(), Home.class);
                                     startActivity(intent);
