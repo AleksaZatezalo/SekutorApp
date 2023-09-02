@@ -27,7 +27,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Home");
+            getSupportActionBar().setTitle("Sekutor Info");
         }
 
 
