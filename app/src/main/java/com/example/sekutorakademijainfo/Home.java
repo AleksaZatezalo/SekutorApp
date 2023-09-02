@@ -16,11 +16,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+
 public class Home extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
-    Button button;
     WebView webView;
+    Button site;
+    Button callus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,17 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+        site = findViewById(R.id.site);
+        callus = findViewById(R.id.callus);
+
+        // User Information
+        if (user == null){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        // Webview
         webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
 
@@ -64,10 +82,16 @@ public class Home extends AppCompatActivity {
         });
         webView.loadUrl("https://www.mmabeograd.org.rs");
 
-        if (user == null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        // Visit Sekutor
+        site.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://www.mmabeograd.org.rs/"));
+                startActivity(intent);
+            }
+        });
     }
 }
