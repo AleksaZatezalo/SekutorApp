@@ -110,7 +110,7 @@
         android:layout_marginTop="11dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="146dp"
-        android:text="Call Us"
+        android:text="Contact Us"
         app:layout_constraintBottom_toTopOf="@+id/bot_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
