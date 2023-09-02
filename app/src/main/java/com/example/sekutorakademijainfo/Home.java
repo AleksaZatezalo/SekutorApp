@@ -1,26 +1,17 @@
 package com.example.sekutorakademijainfo;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import android.app.Activity;
-import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
+import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
     FirebaseAuth auth;
@@ -28,6 +19,7 @@ public class Home extends AppCompatActivity {
     WebView webView;
     Button site;
     Button callus;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +35,8 @@ public class Home extends AppCompatActivity {
         user = auth.getCurrentUser();
         site = findViewById(R.id.site);
         callus = findViewById(R.id.callus);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bot_menu);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
         // User Information
         if (user == null){
