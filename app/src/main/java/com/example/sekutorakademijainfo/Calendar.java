@@ -25,6 +25,7 @@ public class Calendar extends AppCompatActivity {
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bot_menu);
         bottomNavigationView.setSelectedItemId(R.id.calendar);
 
+        //Woo hoo
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
            @Override
            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
