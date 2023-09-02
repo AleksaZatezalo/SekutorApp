@@ -15,7 +15,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="SplashScreen" parent="TextAppearance.AppCompat">
-    </style>
+    <style name="SplashScreen" parent="TextAppearance.AppCompat"></style>
 
 </resources>

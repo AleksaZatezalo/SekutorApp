@@ -6,6 +6,6 @@
         android:icon="@drawable/baseline_home_24"
         android:id="@+id/home"/>
     <item android:title="Calendar"
-        android:icon="@drawable/baseline_calendar_today_24"
+        android:icon="@drawable/baseline_calendar_24"
         android:id="@+id/calendar"/>
 </menu>
