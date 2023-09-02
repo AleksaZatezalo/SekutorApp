@@ -1,13 +1,16 @@
 package com.example.sekutorakademijainfo;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import android.net.Uri;
@@ -37,6 +40,45 @@ public class Home extends AppCompatActivity {
         callus = findViewById(R.id.callus);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bot_menu);
         bottomNavigationView.setSelectedItemId(R.id.home);
+
+        // Perform item selected listener
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+               @Override
+               public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                   switch (item.getItemId()){
+                       case R.id.home:
+                           return true;
+                       case R.id.calendar:
+                           startActivity(new Intent(getApplicationContext(), Calendar.class));
+                           overridePendingTransition(0,0);
+                           return true;
+                   }
+                   return false;
+               }
+           }
+        );
+
+//                .setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//
+//                switch(item.getItemId())
+//                {
+//                    case R.id.dashboard:
+//                        startActivity(new Intent(getApplicationContext(),DashBoard.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                    case R.id.home:
+//                        return true;
+//                    case R.id.about:
+//                        startActivity(new Intent(getApplicationContext(),About.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
+
 
         // User Information
         if (user == null){
