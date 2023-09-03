@@ -72,6 +72,17 @@ public class Calendar extends AppCompatActivity {
         // Adding Items to Card View
         classes = new ArrayList<>();
         classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Funday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
+        classes.add("Brazilian Jiu Jitsu - Sunday 18:00");
         schedule.setLayoutManager(new LinearLayoutManager((this)));
         cardAdapter = new Adapter(this, classes);
         schedule.setAdapter(cardAdapter);
