@@ -133,5 +133,20 @@ public class Calendar extends AppCompatActivity {
         schedule.setLayoutManager(new LinearLayoutManager((this)));
         cardAdapter = new Adapter(this, classes);
         schedule.setAdapter(cardAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String text = spinner.getSelectedItem().toString();
+                cardAdapter.getFilter().filter(text);
+                cardAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
+
 }

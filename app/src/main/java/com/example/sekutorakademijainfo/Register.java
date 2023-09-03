@@ -71,8 +71,13 @@ public class Register extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                    Toast.makeText(Register.this, "Registration failed",
-                                            Toast.LENGTH_SHORT).show();
+                                    if (password.length() <= 6){
+                                        Toast.makeText(Register.this, "Enter longer password",
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(Register.this, "Email already in use",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                     // If sign in fails, display a message to the user.
                                 }
                             }

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable {
@@ -66,10 +67,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
             if (charSequence == null || charSequence.length() == 0){
                 filteredList.addAll(dataFull);
             } else {
-                String filterPattern = charSequence.toString().toLowerCase().trim();
+                String filterPattern = charSequence.toString().trim();
 
                 for (String item : dataFull ) {
-                    if (item.toLowerCase().contains(charSequence)) {
+                    if (item.toString().contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }
@@ -84,7 +85,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             data.clear();
-            data.addAll((List) filterResults);
+            data.addAll((Collection<? extends String>) filterResults.values);
             notifyDataSetChanged();
         }
     };
