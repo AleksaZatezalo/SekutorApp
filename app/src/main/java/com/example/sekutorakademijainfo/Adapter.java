@@ -1,4 +1,4 @@
-package com.example.sekutorakademijainfo;
+package com.sekutor.sekutoracademiainfo;
 
 import android.content.Context;
 import android.view.LayoutInflater;

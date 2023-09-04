@@ -1,4 +1,4 @@
-package com.example.sekutorakademijainfo;
+package com.sekutor.sekutoracademiainfo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;

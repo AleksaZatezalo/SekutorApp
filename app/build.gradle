@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.sekutorakademijainfo'
+    namespace 'com.sekutor.sekutoracademiainfo'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.sekutorakademijainfo"
+        applicationId "com.sekutor.sekutoracademiainfo"
         minSdk 21
         targetSdk 33
         versionCode 1

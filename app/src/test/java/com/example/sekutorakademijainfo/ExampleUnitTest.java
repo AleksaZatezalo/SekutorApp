@@ -1,4 +1,4 @@
-package com.example.sekutorakademijainfo;
+package com.sekutor.sekutoracademiainfo;
 
 import org.junit.Test;
 
